@@ -3,7 +3,6 @@ package com.ecom.web.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,17 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ecom.web.entity.Product;
 import com.ecom.web.service.ProductService;
 
-
 @RestController
-
-
 public class ProductController {
 
 	@Autowired
 	private ProductService productservice;
-//	@CrossOrigin(origins="*",allowedHeaders="*")
 
-	
 	// Get all products
 
 	@GetMapping("/products")
@@ -34,13 +28,11 @@ public class ProductController {
 
 	}
 
-	//Add a Product
-		@PostMapping("/products")
-		public Product addProduct(@RequestBody Product product) {
-				return productservice.addMyProduct(product);
-		}
-		 
-	
+	// Add a Product
+	@PostMapping("/products")
+	public Product addProduct(@RequestBody Product product) {
+		return productservice.addMyProduct(product);
+	}
 
 	// Find Products by Category Name
 	@GetMapping("/products/{cusine}")
